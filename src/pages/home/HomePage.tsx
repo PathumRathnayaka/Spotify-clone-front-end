@@ -1,8 +1,9 @@
+import TopBar from '@/components/TopBar'
 import React from 'react'
 
 const HomePage = () => {
   return (
-    <div>HomePage</div>
+    <div><TopBar/></div>
   )
 }
 

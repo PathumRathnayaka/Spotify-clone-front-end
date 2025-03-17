@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useMusicStore } from '@/stores/useMusicStore';
 import { console } from 'inspector';
@@ -35,6 +36,12 @@ const AlbumPage = () => {
                                 <span>{currentAlbum?.releaseYear}</span>
                             </div>
                         </div>
+                    </div>
+                    {/* play button */}
+                    <div className='px-6 pb-4 flex items-center gap-6'>
+                        <Button size='icon'>
+
+                        </Button>
                     </div>
                 </div>
                 </div>

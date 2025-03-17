@@ -1,15 +1,22 @@
 import PlaylistSkeleton from '@/components/skeletons/PlaylistSkeleton'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import { useMusicStore } from '@/stores/useMusicStore'
 import { SignedIn } from '@clerk/clerk-react'
 import { ScrollArea } from '@radix-ui/react-scroll-area'
 import { HomeIcon, Library, MessageCircle } from 'lucide-react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 const LeftSidebar = () => {
 
-  const isLoading = true;
+  const {albums, fetchAlbums, isLoading} =useMusicStore();
+
+  useEffect(() => {
+    fetchAlbums();
+  },[fetchAlbums]);
+
+  console.log({albums});
 
   return (
     <div className='h-full flex flex-col gap-2'>
@@ -48,10 +55,27 @@ const LeftSidebar = () => {
 
         <ScrollArea className='h-[calc(100vh-300px)]'>
           <div className='space-y-2'>
-            {isLoading ? (
-              <PlaylistSkeleton/>
-            ):(
-              "some music"
+            {isLoading ? <PlaylistSkeleton/> :(
+              albums.map((albums) => (
+                <Link to={`/albums/${albums._id}`}
+                key={albums._id}
+                className='p-2 hover:bg-zinc-800 rounded-md flex items-center gap-3 group cursor-pointer'
+                >
+                  <img src={albums.imageUrl} alt="playlist img" 
+                  className='size-12 rounded-md flex-shrink-0 object-cover'
+                  />
+
+                  <div className='flex-1 min-w-0 hidden md:block'>
+                    <p className='font-medium truncate'>
+                      {albums.title}
+                    </p>
+                    <p className='text-sm text-zinc-400 truncate'>
+                    Album •{albums.artist}
+                    </p>
+
+                  </div>
+                </Link>
+              ))
             )}
           </div>
         </ScrollArea>

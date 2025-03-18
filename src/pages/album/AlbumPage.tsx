@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useMusicStore } from '@/stores/useMusicStore';
 import { console } from 'inspector';
+import { Play } from 'lucide-react';
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
@@ -39,9 +40,17 @@ const AlbumPage = () => {
                     </div>
                     {/* play button */}
                     <div className='px-6 pb-4 flex items-center gap-6'>
-                        <Button size='icon'>
-
+                        <Button size='icon' className='w-14 h-14 rounded-full bg-green-400 hover:scale-150 transition-all'>
+                            <Play className='h-7 w-7 text-black'/>
                         </Button>
+                    </div>
+                    {/* table section */}
+                    <div className='bg-black/20 backdrop-blur-sm'>
+                    {/* table header */}
+                    <div className='grid grid-cols-[16px_4fr_2fr_1fr] gap-4 px-10 py-2 text-sm text-zinc-400'>
+
+                    </div>
+
                     </div>
                 </div>
                 </div>

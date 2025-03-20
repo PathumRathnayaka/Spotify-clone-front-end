@@ -1,10 +1,9 @@
 import { axiosInstance } from "@/lib/axios";
 import { Album, Song } from "@/types";
-import { error } from "console";
-import { create} from "zustand";
+import { create } from "zustand";
 
 interface MusicStore {
-    song: Song[];
+    songs: Song[]; // Renamed for clarity
     albums: Album[];
     isLoading: boolean;
     error: string | null;
@@ -12,36 +11,37 @@ interface MusicStore {
 
     fetchAlbums: () => Promise<void>;
     fetchAlbumById: (id: string) => Promise<void>;
-    
 }
 
 export const useMusicStore = create<MusicStore>((set) => ({
-    albums:[],
-    song:[],
+    albums: [],
+    songs: [],
     isLoading: false,
     error: null,
+    currentAlbum: null, // Added missing property
 
-    fetchAlbums: async() => {
-        set({ isLoading: true, error: null});
+    fetchAlbums: async () => {
+        set({ isLoading: true, error: null });
 
         try {
             const response = await axiosInstance.get("/albums");
-            set({ albums: response.data});
+            set({ albums: response.data });
         } catch (error: any) {
-            set({error: error.response.data.message});
-        }finally {
-            set({ isLoading: false})
+            set({ error: error?.response?.data?.message || "An error occurred" });
+        } finally {
+            set({ isLoading: false });
         }
     },
-    fetchAlbumById: async (id: string) =>{
-        set({ isLoading: true, error: null});
+
+    fetchAlbumById: async (id: string) => {
+        set({ isLoading: true, error: null });
         try {
             const response = await axiosInstance.get(`/albums/${id}`);
-            set({ currentAlbum: response.data})
-        } catch (error:any) {
-            set({error: error.response.data.message})
-        }finally{
-            set({isLoading: false});
+            set({ currentAlbum: response.data });
+        } catch (error: any) {
+            set({ error: error?.response?.data?.message || "An error occurred" });
+        } finally {
+            set({ isLoading: false });
         }
     }
 }));

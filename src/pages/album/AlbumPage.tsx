@@ -19,15 +19,19 @@ const AlbumPage = () => {
         if (albumId) fetchAlbumById(albumId);
     }, [fetchAlbumById, albumId]);
 
-    if (isLoading) return null;
+    console.log("Album Data:", currentAlbum);
+console.log("Songs:", currentAlbum?.songs);
 
+    if (isLoading) return null;
+    
     return (
         <div className='h-full'>
-            <ScrollArea className='h-full'>
+            <ScrollArea className='h-full rounded-md'>
                 <div className='relative min-h-full'>
                     <div
-                        className='absolute inset-0 bg-gradient-to-b from-[#5038a0]/80 via-zinc-900/80 to-zinc-900 pointer-events-none'
-                        aria-hidden='true'
+                        className='absolute inset-0 bg-gradient-to-b from-[#5038a0]/80 via-zinc-900/80
+                        to-zinc-900 pointer-events-none'
+                           aria-hidden='true'
                     >
                         {/* content */}
                         <div className='relative z-10'>
@@ -42,7 +46,7 @@ const AlbumPage = () => {
                                     <p className='text-sm font-medium'>Album</p>
                                     <h1 className='text-7xl font-bold my-4'>{currentAlbum?.title}</h1>
                                     <div className='flex items-center gap-2 text-sm text-zinc-100'>
-                                        <span>{currentAlbum?.songs.length} songs</span>
+                                        <span>{currentAlbum?.songs?.length} songs</span>
                                         <span>{currentAlbum?.releaseYear}</span>
                                     </div>
                                 </div>
@@ -71,7 +75,7 @@ const AlbumPage = () => {
                                 {/* song list */}
                                 <div className='px-6'>
                                     <div className='space-y-2 py-4'>
-                                        {currentAlbum?.songs.map((song, index) => (
+                                        {currentAlbum?.songs?.map((song, index) => (
                                             <div
                                                 key={song._id}
                                                 className={`grid grid-cols-[16px_4fr_2fr_1fr] gap-4 px-4 py-2 text-sm 

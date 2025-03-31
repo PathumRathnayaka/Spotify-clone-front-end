@@ -6,7 +6,7 @@ const AudioPlayer = () => {
     const audioRef =useRef<HTMLAudioElement>(null);
     const prevSongRef = useRef<string | null>(null);
 
-    const { currentSong, isPlaying} = usePlayStore();
+    const { currentSong, isPlaying, playNext} = usePlayStore();
 
     //handle play/pause logic
     useEffect(() => {

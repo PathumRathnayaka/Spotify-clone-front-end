@@ -4,7 +4,7 @@ import { useMusicStore } from '@/stores/useMusicStore'
 
 const FeaturedSection = () => {
 
-    const {isLoading, featuredSongs, error}= useMusicStore()
+    const {isLoading, featuredSongs, error}= useMusicStore();
 
     if(isLoading) return <FeaturedGridSkeleton/>
     if(error) return <p className='text-red-500 mb-4 text-lg'>{error}</p>
@@ -21,6 +21,7 @@ const FeaturedSection = () => {
           <p className='font-medium truncate'>{song.title}</p>
           <p className='text-sm text-zinc-400 truncate'>{song.artist}</p>
           </div>
+          
         </div>
         //TODO add play button
       ))}

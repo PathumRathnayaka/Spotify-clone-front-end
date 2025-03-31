@@ -20,7 +20,7 @@ const SectionGrid = ({ songs, title, isLoading}:SectionGridProps) => {
           show all
         </Button>
       </div>
-      <div>
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4'>
         {songs.map((songs) => (
           <div key={songs._id} 
           className='bg-zinc-800/40 p-4 rounded-md hover:bg-zinc-700/40 transition-all group cursor-pointer'>
@@ -30,6 +30,12 @@ const SectionGrid = ({ songs, title, isLoading}:SectionGridProps) => {
                 className='w-full h-full object-cover transition-transform duration-300 group-hover:scale-105'/>
               </div>
             </div>
+            <h3 className='font-medium mb-2 truncate'>
+              {songs.title}
+            </h3>
+            <p className='text-sm text-zinc-400 truncate'>
+              {songs.artist}
+            </p>
           </div>
         ))}
       </div>

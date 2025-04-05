@@ -22,7 +22,7 @@ export const usePlayStore = create<PlayStore>((set, get) =>({
 	currentIndex: -1,
 
     initializeQueue: (songs: Song[]) => {
-
+        console.log("Initializing queue with:", songs);
         set({
             queue: songs,
             currentSong: get().currentSong || songs[0],

@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Library } from "lucide-react";
 import AlbumsTable from "./AlbumsTable";
-
+import AddAlbumDialog from "./AddAlbumDialog";
 export const AlbumTabContent = () => {
     return (
         <Card className='bg-zinc-800/50 border-zinc-700/50'>
@@ -14,6 +14,7 @@ export const AlbumTabContent = () => {
 						</CardTitle>
 						<CardDescription>Manage your album collection</CardDescription>
 					</div>
+					<AddAlbumDialog />
 				</div>
 			</CardHeader>
 

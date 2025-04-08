@@ -14,7 +14,7 @@ export const AdminPage = () => {
     const  {isAdmin, isLoading} = useAuthStore()
 
     const {fetchAlbums, fetchSongs, fetchStats} =useMusicStore();
-
+    console.log("check status:",fetchStats)
 
     useEffect(() => {
         fetchAlbums();

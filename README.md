@@ -1,54 +1,46 @@
-# React + TypeScript + Vite
+# 🎵 Spotify Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack Spotify-inspired music streaming web app built using modern technologies like React, TypeScript, Tailwind CSS, and Node.js. It supports features like user authentication, song streaming, and admin management.
 
-Currently, two official plugins are available:
+![Spotify Clone Screenshot](./assets/spotify-clone-preview.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+**Frontend**  
+- React 19 + TypeScript  
+- Vite  
+- Tailwind CSS + Tailwind Plugins  
+- Zustand (State Management)  
+- Radix UI + Lucide Icons  
+- Axios, Socket.io-client  
+- Clerk for authentication  
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+**Backend**  
+- Node.js + Express  
+- MongoDB + Mongoose  
+- Clerk (User auth)  
+- Socket.IO  
+- Cloudinary (for media upload)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📦 Clone & Run the Project
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### 🔧 Prerequisites
+
+- Node.js and npm installed
+- MongoDB set up (local or Atlas)
+- [Clerk account](https://clerk.dev/) and keys
+- Cloudinary account for media upload
+
+---
+
+### 🖥 Frontend Setup
+
+```bash
+git clone https://github.com/YourUsername/Spotify-Clone-frontend.git
+cd Spotify-Clone-frontend
+npm install
+npm run dev

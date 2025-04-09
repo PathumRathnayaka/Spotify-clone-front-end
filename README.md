@@ -2,7 +2,7 @@
 
 A full-stack Spotify-inspired music streaming web app built using modern technologies like React, TypeScript, Tailwind CSS, and Node.js. It supports features like user authentication, song streaming, and admin management.
 
-![Spotify Clone Screenshot](./assets/spotify-clone-preview.png)
+![Spotify Clone Screenshot](https://martech.org/wp-content/uploads/2017/09/spotify-logo-1920x1080.jpg)
 
 ---
 

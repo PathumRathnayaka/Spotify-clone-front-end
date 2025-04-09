@@ -1,8 +1,10 @@
 import { axiosInstance } from "@/lib/axios";
 import { useAuthStore } from "@/stores/useAuthStore";
+import { useChatStore } from "@/stores/useChatStore";
 import { useAuth } from "@clerk/clerk-react"
 import { Loader } from "lucide-react";
 import React, { useEffect, useState } from "react"
+
 
 const updateApitoken = (token: string | null) => {
     if (token) axiosInstance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
@@ -10,9 +12,10 @@ const updateApitoken = (token: string | null) => {
 }
 
 const AuthProvider = ({children}:{ children:React.ReactNode}) =>{
-    const {getToken } = useAuth()
+    const {getToken, userId } = useAuth()
     const [loading, setLoading] = useState(true)
     const {checkAdminStatus} = useAuthStore();
+    const {initSocket, disconnectSocket} = useChatStore();
 
     useEffect(() => {
         const initAuth =  async () =>{
@@ -21,6 +24,10 @@ const AuthProvider = ({children}:{ children:React.ReactNode}) =>{
                 updateApitoken(token);
                 if(token){
                     await checkAdminStatus();
+                    //init socket
+                    if(userId){
+                        initSocket(userId);
+                    }
                 }
             } catch (error:any) {
                 updateApitoken(null);
@@ -30,7 +37,10 @@ const AuthProvider = ({children}:{ children:React.ReactNode}) =>{
             }
         };
         initAuth();
-    },[getToken]);
+        return () => {
+            disconnectSocket();
+        }
+    },[getToken, userId, checkAdminStatus, initSocket, disconnectSocket]);
 
     if(loading) return (
     <div className="h-screen w-full flex items-center justify-center">

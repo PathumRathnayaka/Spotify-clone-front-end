@@ -1,10 +1,10 @@
 import { axiosInstance } from "@/lib/axios";
-import { Message } from "@/types";
+import { Message, User } from "@/types";
 import { create } from "zustand";
 import { io } from "socket.io-client";
 
 interface ChatStore {
-  users: [];
+  users: User[];
 	isLoading: boolean;
 	error: string | null;
 	socket: any;
@@ -12,13 +12,14 @@ interface ChatStore {
 	onlineUsers: Set<string>;
 	userActivities: Map<string, string>;
 	messages: Message[];
+  selectedUser: User | null;
 
 	fetchUsers: () => Promise<void>;
 	initSocket: (userId: string) => void;
 	disconnectSocket: () => void;
 	sendMessage: (receiverId: string, senderId: string, content: string) => void;
   fetchMessages: (userId: string) => Promise<void>;
-	
+	setSelectedUser: (user: User | null) => void;
 }
 
 
@@ -33,11 +34,14 @@ export const useChatStore = create<ChatStore>((set, get) => ({
   users: [],
   isLoading: false,
   error: null,
-  socket: null,
+  socket: socket,
   isConnected: false,
   onlineUsers: new Set(),
   userActivities: new Map(),
   messages: [],
+  selectedUser: null,
+
+  setSelectedUser: (user) => set({ selectedUser: user }),
 
   fetchUsers: async () =>{
     set({ isLoading: true, error: null });

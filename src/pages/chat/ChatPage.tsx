@@ -12,11 +12,7 @@ const formatTime = (date: string) => {
 	try {
 		const parsedDate = new Date(date);
 		if (isNaN(parsedDate.getTime())) {
-			return new Date().toLocaleTimeString("en-US", {
-				hour: "2-digit",
-				minute: "2-digit",
-				hour12: true,
-			});
+			return '';
 		}
 		return parsedDate.toLocaleTimeString("en-US", {
 			hour: "2-digit",
@@ -24,11 +20,7 @@ const formatTime = (date: string) => {
 			hour12: true,
 		});
 	} catch (error) {
-		return new Date().toLocaleTimeString("en-US", {
-			hour: "2-digit",
-			minute: "2-digit",
-			hour12: true,
-		});
+		return '';
 	}
 };
 

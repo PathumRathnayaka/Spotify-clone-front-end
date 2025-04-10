@@ -9,25 +9,51 @@ import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import MessageInput from './components/MessageInput';
 
 const formatTime = (date: string) => {
-	return new Date(date).toLocaleTimeString("en-US", {
-		hour: "2-digit",
-		minute: "2-digit",
-		hour12: true,
-	});
+	try {
+		const parsedDate = new Date(date);
+		if (isNaN(parsedDate.getTime())) {
+			return new Date().toLocaleTimeString("en-US", {
+				hour: "2-digit",
+				minute: "2-digit",
+				hour12: true,
+			});
+		}
+		return parsedDate.toLocaleTimeString("en-US", {
+			hour: "2-digit",
+			minute: "2-digit",
+			hour12: true,
+		});
+	} catch (error) {
+		return new Date().toLocaleTimeString("en-US", {
+			hour: "2-digit",
+			minute: "2-digit",
+			hour12: true,
+		});
+	}
 };
 
 const ChatPage = () => {
   const {user} = useUser();
-  const {messages, selectedUser, fetchUsers,fetchMessages} = useChatStore();
+  const {messages, selectedUser, fetchUsers, fetchMessages, initSocket, disconnectSocket} = useChatStore();
+  console.log("message data",messages);
 
-useEffect(() => {
-  if(user) fetchUsers();
-},[user, fetchUsers]);
+  // Initialize socket connection and fetch users when user is available
+  useEffect(() => {
+    if (user) {
+      fetchUsers();
+      initSocket(user.id);
+    }
+    return () => {
+      disconnectSocket();
+    };
+  }, [user, fetchUsers, initSocket, disconnectSocket]);
 
-useEffect(() => {
-  if(selectedUser) fetchMessages(selectedUser.clerkId);
-},[selectedUser, fetchMessages]);
-
+  // Fetch messages when selectedUser changes or on page load if selectedUser exists
+  useEffect(() => {
+    if (selectedUser && user) {
+      fetchMessages(selectedUser.clerkId);
+    }
+  }, [selectedUser, user, fetchMessages]);
 
   return (
     <main className='h-full rounded-lg bg-gradient-to-b from-zinc-800 to-zinc-900 overflow-hidden'>

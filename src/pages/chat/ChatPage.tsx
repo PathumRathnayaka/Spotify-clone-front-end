@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useChatStore } from '@/stores/useChatStore';
 import { useUser } from '@clerk/clerk-react';
 import TopBar from '@/components/TopBar';

@@ -1,7 +1,7 @@
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { useChatStore } from '@/stores/useChatStore'
 import { HeadphonesIcon, Users, Music } from 'lucide-react'
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useUser } from '@clerk/clerk-react'
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
 

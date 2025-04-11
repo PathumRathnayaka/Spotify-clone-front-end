@@ -2,7 +2,7 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { useMusicStore } from '@/stores/useMusicStore';
 import { toast } from 'react-hot-toast';
 import { Plus, Upload } from 'lucide-react';
-import React, { useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { Button } from '@/components/ui/button';
 import { DialogTrigger } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';

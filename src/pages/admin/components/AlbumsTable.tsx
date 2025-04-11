@@ -4,7 +4,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { useMusicStore } from '@/stores/useMusicStore'
 import { Calendar } from 'lucide-react';
 import { Music } from 'lucide-react';
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 
 const AlbumsTable = () => {
 

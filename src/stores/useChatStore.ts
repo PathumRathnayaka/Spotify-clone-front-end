@@ -28,10 +28,11 @@ const baseUrl = import.meta.env.VITE_API_URL ||
     ? "https://spotify-clone-backend-ruddy.vercel.app" 
     : "https://spotify-clone-backend-ruddy.vercel.app")
 
-const socket = io(baseUrl,{
-  autoConnect: false,
-  withCredentials: true,
-})
+    const socket = io("https://spotify-clone-backend-ruddy.vercel.app", {
+      transports: ["websocket", "polling"], // Fallback to polling
+      withCredentials: true,
+      path: "/socket.io" // Ensure this matches backend
+    });
 
 export const useChatStore = create<ChatStore>()(
   persist(

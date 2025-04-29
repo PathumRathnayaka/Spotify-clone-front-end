@@ -121,41 +121,6 @@ vite.config.ts
 # tmp/
 ````
 
-## File: repomix.config.json
-````json
-{
-  "output": {
-    "filePath": "spotifyfrontend.md",
-    "style": "markdown",
-    "parsableStyle": false,
-    "fileSummary": true,
-    "directoryStructure": true,
-    "removeComments": false,
-    "removeEmptyLines": false,
-    "compress": false,
-    "topFilesLength": 5,
-    "showLineNumbers": false,
-    "copyToClipboard": false,
-    "git": {
-      "sortByChanges": true,
-      "sortByChangesMaxCommits": 100
-    }
-  },
-  "include": [],
-  "ignore": {
-    "useGitignore": true,
-    "useDefaultPatterns": true,
-    "customPatterns": []
-  },
-  "security": {
-    "enableSecurityCheck": true
-  },
-  "tokenCount": {
-    "encoding": "o200k_base"
-  }
-}
-````
-
 ## File: components.json
 ````json
 {
@@ -241,6 +206,41 @@ SOFTWARE.
 ## File: public/vite.svg
 ````
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--logos" width="31.88" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 257"><defs><linearGradient id="IconifyId1813088fe1fbc01fb466" x1="-.828%" x2="57.636%" y1="7.652%" y2="78.411%"><stop offset="0%" stop-color="#41D1FF"></stop><stop offset="100%" stop-color="#BD34FE"></stop></linearGradient><linearGradient id="IconifyId1813088fe1fbc01fb467" x1="43.376%" x2="50.316%" y1="2.242%" y2="89.03%"><stop offset="0%" stop-color="#FFEA83"></stop><stop offset="8.333%" stop-color="#FFDD35"></stop><stop offset="100%" stop-color="#FFA800"></stop></linearGradient></defs><path fill="url(#IconifyId1813088fe1fbc01fb466)" d="M255.153 37.938L134.897 252.976c-2.483 4.44-8.862 4.466-11.382.048L.875 37.958c-2.746-4.814 1.371-10.646 6.827-9.67l120.385 21.517a6.537 6.537 0 0 0 2.322-.004l117.867-21.483c5.438-.991 9.574 4.796 6.877 9.62Z"></path><path fill="url(#IconifyId1813088fe1fbc01fb467)" d="M185.432.063L96.44 17.501a3.268 3.268 0 0 0-2.634 3.014l-5.474 92.456a3.268 3.268 0 0 0 3.997 3.378l24.777-5.718c2.318-.535 4.413 1.507 3.936 3.838l-7.361 36.047c-.495 2.426 1.782 4.5 4.151 3.78l15.304-4.649c2.372-.72 4.652 1.36 4.15 3.788l-11.698 56.621c-.732 3.542 3.979 5.473 5.943 2.437l1.313-2.028l72.516-144.72c1.215-2.423-.88-5.186-3.54-4.672l-25.505 4.922c-2.396.462-4.435-1.77-3.759-4.114l16.646-57.705c.677-2.35-1.37-4.583-3.769-4.113Z"></path></svg>
+````
+
+## File: repomix.config.json
+````json
+{
+  "output": {
+    "filePath": "spotifyfrontend.md",
+    "style": "markdown",
+    "parsableStyle": false,
+    "fileSummary": true,
+    "directoryStructure": true,
+    "removeComments": false,
+    "removeEmptyLines": false,
+    "compress": false,
+    "topFilesLength": 5,
+    "showLineNumbers": false,
+    "copyToClipboard": false,
+    "git": {
+      "sortByChanges": true,
+      "sortByChangesMaxCommits": 100
+    }
+  },
+  "include": [],
+  "ignore": {
+    "useGitignore": true,
+    "useDefaultPatterns": true,
+    "customPatterns": []
+  },
+  "security": {
+    "enableSecurityCheck": true
+  },
+  "tokenCount": {
+    "encoding": "o200k_base"
+  }
+}
 ````
 
 ## File: src/App.tsx~
@@ -2136,32 +2136,6 @@ export const usePlayStore = create<PlayStore>((set, get) =>({
 }
 ````
 
-## File: index.html
-````html
-<!doctype html>
-<html lang="en" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/spotify.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spotify</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
-````
-
-## File: src/lib/axios.ts
-````typescript
-import axios from "axios";
-
-export const axiosInstance = axios.create({
-    baseURL: import.meta.env.MODE === "development" ? "https://spotify-clone-backend-ruddy.vercel.app/api" : "/api",
-})
-````
-
 ## File: src/pages/admin/components/AddSongDialog.tsx
 ````typescript
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
@@ -2727,6 +2701,23 @@ dist-ssr
 .env
 ````
 
+## File: index.html
+````html
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/spotify.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+````
+
 ## File: README.md
 ````markdown
 # 🎵 Spotify Clone
@@ -3184,6 +3175,15 @@ const LeftSidebar = () => {
 }
 
 export default LeftSidebar
+````
+
+## File: src/lib/axios.ts
+````typescript
+import axios from "axios";
+
+export const axiosInstance = axios.create({
+    baseURL: import.meta.env.MODE === "development" ? "https://spotify-clone-backend-ruddy.vercel.app/api" : "/api",
+})
 ````
 
 ## File: src/main.tsx
@@ -3685,166 +3685,6 @@ const AuthProvider = ({children}:{ children:React.ReactNode}) =>{
 export default AuthProvider
 ````
 
-## File: src/stores/useChatStore.ts
-````typescript
-import { axiosInstance } from "@/lib/axios";
-import { Message, User } from "@/types";
-import { create } from "zustand";
-import { io } from "socket.io-client";
-import { persist } from 'zustand/middleware';
-
-interface ChatStore {
-  users: User[];
-	isLoading: boolean;
-	error: string | null;
-	socket: any;
-	isConnected: boolean;
-	onlineUsers: Set<string>;
-	userActivities: Map<string, string>;
-	messages: Message[];
-  selectedUser: User | null;
-
-	fetchUsers: () => Promise<void>;
-	initSocket: (userId: string) => void;
-	disconnectSocket: () => void;
-	sendMessage: (receiverId: string, senderId: string, content: string) => void;
-  fetchMessages: (userId: string) => Promise<void>;
-	setSelectedUser: (user: User | null) => void;
-}
-
-const baseUrl = import.meta.env.MODE === "development" ? "https://spotify-clone-backend-ruddy.vercel.app" : "/"
-
-const socket = io(baseUrl,{
-  autoConnect: false,
-  withCredentials: true,
-})
-
-export const useChatStore = create<ChatStore>()(
-  persist(
-    (set, get) => ({
-      users: [],
-      isLoading: false,
-      error: null,
-      socket: socket,
-      isConnected: false,
-      onlineUsers: new Set(),
-      userActivities: new Map(),
-      messages: [],
-      selectedUser: null,
-
-      setSelectedUser: (user) => set({ selectedUser: user }),
-
-      fetchUsers: async () =>{
-        set({ isLoading: true, error: null });
-        try {
-            const response = await axiosInstance.get("/users");
-            set({ users: response.data});
-        } catch (error: any) {
-            set({ error: error.response.data.message });
-        } finally {
-            set({ isLoading: false });
-        }
-      },
-
-      initSocket: (userId) => {
-        if (!get().isConnected) {
-          socket.auth = { userId };
-          socket.connect();
-
-          socket.emit("user_connected", userId);
-
-          socket.on("users_online", (users: string[]) => {
-            set({ onlineUsers: new Set(users) });
-          });
-
-          socket.on("activities", (activities: [string, string][]) => {
-            set({ userActivities: new Map(activities) });
-          });
-
-          socket.on("user_connected", (userId: string) => {
-            set((state) => ({
-              onlineUsers: new Set([...state.onlineUsers, userId]),
-            }));
-          });
-
-          socket.on("user_disconnected", (userId: string) => {
-            set((state) => {
-              const newOnlineUsers = new Set(state.onlineUsers);
-              newOnlineUsers.delete(userId);
-              return { onlineUsers: newOnlineUsers };
-            });
-          });
-
-          socket.on("receive_message", (message: Message) => {
-            set((state) => {
-              const messageExists = state.messages.some(m => m._id === message._id);
-              if (!messageExists) {
-                return {
-                  messages: [...state.messages, message],
-                };
-              }
-              return state;
-            });
-          });
-
-          socket.on("message_sent", (message: Message) => {
-            set((state) => {
-              const messageExists = state.messages.some(m => m._id === message._id);
-              if (!messageExists) {
-                return {
-                  messages: [...state.messages, message],
-                };
-              }
-              return state;
-            });
-          });
-
-          socket.on("activity_updated", ({ userId, activity }) => {
-            set((state) => {
-              const newActivities = new Map(state.userActivities);
-              newActivities.set(userId, activity);
-              return { userActivities: newActivities };
-            });
-          });
-
-          set({ isConnected: true });
-        }
-      },
-
-      disconnectSocket: () => {
-        if (get().isConnected) {
-          socket.disconnect();
-          set({ isConnected: false });
-        }
-      },
-
-      sendMessage: async (receiverId, senderId, content) => {
-        const socket = get().socket;
-        if (!socket) return;
-
-        socket.emit("send_message", { receiverId, senderId, content });
-      },
-
-      fetchMessages: async (userId: string) => {
-        set({ isLoading: true, error: null });
-        try {
-          const response = await axiosInstance.get(`/users/messages/${userId}`);
-          set({ messages: response.data });
-        } catch (error: any) {
-          set({ error: error.response.data.message });
-        } finally {
-          set({ isLoading: false });
-        }
-      },
-    }),
-    {
-      name: 'chat-storage',
-      partialize: (state) => ({ selectedUser: state.selectedUser }),
-    }
-  )
-);
-````
-
 ## File: src/layout/MainLayout.tsx
 ````typescript
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable'
@@ -4071,6 +3911,166 @@ const SectionGrid = ({ songs, title, isLoading}:SectionGridProps) => {
 }
 
 export default SectionGrid
+````
+
+## File: src/stores/useChatStore.ts
+````typescript
+import { axiosInstance } from "@/lib/axios";
+import { Message, User } from "@/types";
+import { create } from "zustand";
+import { io } from "socket.io-client";
+import { persist } from 'zustand/middleware';
+
+interface ChatStore {
+  users: User[];
+	isLoading: boolean;
+	error: string | null;
+	socket: any;
+	isConnected: boolean;
+	onlineUsers: Set<string>;
+	userActivities: Map<string, string>;
+	messages: Message[];
+  selectedUser: User | null;
+
+	fetchUsers: () => Promise<void>;
+	initSocket: (userId: string) => void;
+	disconnectSocket: () => void;
+	sendMessage: (receiverId: string, senderId: string, content: string) => void;
+  fetchMessages: (userId: string) => Promise<void>;
+	setSelectedUser: (user: User | null) => void;
+}
+
+const baseUrl = import.meta.env.MODE === "development" ? "https://spotify-clone-backend-ruddy.vercel.app" : "/"
+
+const socket = io(baseUrl,{
+  autoConnect: false,
+  withCredentials: true,
+})
+
+export const useChatStore = create<ChatStore>()(
+  persist(
+    (set, get) => ({
+      users: [],
+      isLoading: false,
+      error: null,
+      socket: socket,
+      isConnected: false,
+      onlineUsers: new Set(),
+      userActivities: new Map(),
+      messages: [],
+      selectedUser: null,
+
+      setSelectedUser: (user) => set({ selectedUser: user }),
+
+      fetchUsers: async () =>{
+        set({ isLoading: true, error: null });
+        try {
+            const response = await axiosInstance.get("/users");
+            set({ users: response.data});
+        } catch (error: any) {
+            set({ error: error.response.data.message });
+        } finally {
+            set({ isLoading: false });
+        }
+      },
+
+      initSocket: (userId) => {
+        if (!get().isConnected) {
+          socket.auth = { userId };
+          socket.connect();
+
+          socket.emit("user_connected", userId);
+
+          socket.on("users_online", (users: string[]) => {
+            set({ onlineUsers: new Set(users) });
+          });
+
+          socket.on("activities", (activities: [string, string][]) => {
+            set({ userActivities: new Map(activities) });
+          });
+
+          socket.on("user_connected", (userId: string) => {
+            set((state) => ({
+              onlineUsers: new Set([...state.onlineUsers, userId]),
+            }));
+          });
+
+          socket.on("user_disconnected", (userId: string) => {
+            set((state) => {
+              const newOnlineUsers = new Set(state.onlineUsers);
+              newOnlineUsers.delete(userId);
+              return { onlineUsers: newOnlineUsers };
+            });
+          });
+
+          socket.on("receive_message", (message: Message) => {
+            set((state) => {
+              const messageExists = state.messages.some(m => m._id === message._id);
+              if (!messageExists) {
+                return {
+                  messages: [...state.messages, message],
+                };
+              }
+              return state;
+            });
+          });
+
+          socket.on("message_sent", (message: Message) => {
+            set((state) => {
+              const messageExists = state.messages.some(m => m._id === message._id);
+              if (!messageExists) {
+                return {
+                  messages: [...state.messages, message],
+                };
+              }
+              return state;
+            });
+          });
+
+          socket.on("activity_updated", ({ userId, activity }) => {
+            set((state) => {
+              const newActivities = new Map(state.userActivities);
+              newActivities.set(userId, activity);
+              return { userActivities: newActivities };
+            });
+          });
+
+          set({ isConnected: true });
+        }
+      },
+
+      disconnectSocket: () => {
+        if (get().isConnected) {
+          socket.disconnect();
+          set({ isConnected: false });
+        }
+      },
+
+      sendMessage: async (receiverId, senderId, content) => {
+        const socket = get().socket;
+        if (!socket) return;
+
+        socket.emit("send_message", { receiverId, senderId, content });
+      },
+
+      fetchMessages: async (userId: string) => {
+        set({ isLoading: true, error: null });
+        try {
+          const response = await axiosInstance.get(`/users/messages/${userId}`);
+          set({ messages: response.data });
+        } catch (error: any) {
+          set({ error: error.response.data.message });
+        } finally {
+          set({ isLoading: false });
+        }
+      },
+    }),
+    {
+      name: 'chat-storage',
+      partialize: (state) => ({ selectedUser: state.selectedUser }),
+    }
+  )
+);
 ````
 
 ## File: src/pages/home/HomePage.tsx

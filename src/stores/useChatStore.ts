@@ -23,7 +23,10 @@ interface ChatStore {
 	setSelectedUser: (user: User | null) => void;
 }
 
-const baseUrl = import.meta.env.MODE === "development" ? "https://spotify-clone-backend-ruddy.vercel.app" : "/"
+const baseUrl = import.meta.env.VITE_API_URL || 
+  (import.meta.env.MODE === "development" 
+    ? "https://spotify-clone-backend-ruddy.vercel.app" 
+    : "https://spotify-clone-backend-ruddy.vercel.app")
 
 const socket = io(baseUrl,{
   autoConnect: false,
